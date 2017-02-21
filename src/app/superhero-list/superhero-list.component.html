@@ -1,0 +1,13 @@
+<div class="ui middle aligned selection list heroes">
+  <div *ngFor="let hero of heroes" [class.selected]="hero === selectedHero" class="item">
+    <div class="content" (click)="onHeroClicked(hero)">
+      <div class="header">{{ hero.hero_name }}</div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="content" (click)="onHeroClicked(newHero)">
+      <div class="header" (click)="onHeroClicked()">Create new hero</div>
+    </div>
+  </div>
+</div>
+<button (click)="onRefresh()">Refresh Superheroes List</button>

@@ -1,0 +1,45 @@
+<div class="component-root">
+  <p>
+    Attributes of {{ selectedHero.hero_name }}
+  </p>
+  <div *ngIf="selectedHero.attributes" class="item">
+    <table>
+      <tr>
+        <td>Intelligence&nbsp;</td>
+        <td>
+          <input [(ngModel)]="selectedHero.attributes.intelligence" size="3">
+        </td>
+      </tr>
+      <tr>
+        <td>Strength&nbsp;</td>
+        <td>
+          <input [(ngModel)]="selectedHero.attributes.strength" size="3">
+        </td>
+      </tr>
+      <tr>
+        <td>Speed&nbsp;</td>
+        <td>
+          <input [(ngModel)]="selectedHero.attributes.speed" size="3">
+        </td>
+      </tr>
+      <tr>
+        <td>Durability&nbsp;</td>
+        <td>
+          <input [(ngModel)]="selectedHero.attributes.durability" size="3">
+        </td>
+      </tr>
+      <tr>
+        <td>Power&nbsp;</td>
+        <td>
+          <input [(ngModel)]="selectedHero.attributes.power" size="3">
+        </td>
+      </tr>
+      <tr>
+        <td>Combat&nbsp;</td>
+        <td>
+          <input [(ngModel)]="selectedHero.attributes.combat" size="3">
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>

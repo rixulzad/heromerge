@@ -1,0 +1,12 @@
+ul {
+  list-style: none;
+}
+.heroes div:hover {
+  color: #0000CC;
+  background-color: #CCC;
+  left: .1em;
+}
+  .selected {
+    background-color: #CFD8DC !important;
+    color: white;
+  }

@@ -1,3 +1,11 @@
 <h1>
   {{title}}
 </h1>
+<div class="ui two column doubling stackable grid container">
+  <div class="column">
+    <superhero-list (onHeroSelected)="onHeroSelected($event)" (onHeroAdded)="onHeroAdded($event)"></superhero-list>
+  </div>
+  <div class="column">
+    <superhero-details [selectedHero]="selectedHero"></superhero-details>
+  </div>
+</div>

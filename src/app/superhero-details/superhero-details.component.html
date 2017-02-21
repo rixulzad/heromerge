@@ -1,0 +1,36 @@
+<div *ngIf="selectedHero">
+  <table>
+    <tr>
+      <td>Super Hero Name:</td>
+      <td>
+        <input [(ngModel)]="selectedHero.hero_name" placeholder="Superhero name">
+      </td>
+    </tr>
+    <tr>
+      <td>Real Name:</td>
+      <td>
+        <input [(ngModel)]="selectedHero.real_name" placeholder="Real name">
+      </td>
+    </tr>
+    <tr>
+      <td>Gender:</td>
+      <td>
+        <input [(ngModel)]="selectedHero.gender" placeholder="Gender">
+      </td>
+    </tr>
+    <tr>
+      <td>id:</td>
+      <td>{{ selectedHero.id }}</td>
+    </tr>
+    <tr>
+      <td>
+        <attributes-editor [selectedHero]="selectedHero"></attributes-editor>
+      </td>
+      <td>
+        <powers-editor [selectedHero]="selectedHero"></powers-editor>
+      </td>
+    </tr>
+  </table>
+  <button (click)="onSuperHeroSave(selectedHero)">Save Changes to Hero</button>
+  <button (click)="onNewSuperHero(selectedHero)">Save New Hero</button>
+</div>

@@ -1,0 +1,15 @@
+<div class="component-root">
+  <p>
+    Powers of {{ selectedHero.hero_name }}
+  </p>
+  <div class="item" *ngFor="let power of selectedHero.powers; let i=index">
+    <span>
+      <input type="checkbox" [(ngModel)]="selectedPowers[i]">
+    </span>
+    <span>
+      <input [(ngModel)]="selectedHero.powers[i]" size="20" placeholder="Enter new power">
+    </span>
+  </div>
+  <button (click)="onAddClicked()">Add</button>
+  <button (click)="onRemovedClicked()">Remove</button>
+</div>
