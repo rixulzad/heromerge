@@ -52,4 +52,8 @@ export class PowersEditorComponent implements OnInit {
     // do I need to save the new/edited/removed power array, since data only flows down?
   }
 
+  trackByFn(index: any, item: any) {
+   return index;
+}
+
 }

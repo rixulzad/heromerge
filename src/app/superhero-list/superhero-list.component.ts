@@ -7,6 +7,8 @@ import { Superhero } from '../superhero.model';
 import { Attributes } from '../attributes.model';
 import { SuperheroService } from '../superhero-service';
 import { Observable } from 'rxjs';
+// import { Subscription }   from 'rxjs/Subscription';
+
 
 @Component({
   selector: 'superhero-list',
@@ -18,8 +20,13 @@ export class SuperheroListComponent implements OnInit {
   heroes: Superhero[] = [];
   selectedHero:Superhero;
   newHero:Superhero;
+  // newSuperheroAddedSubscription: Subscription;
 
   constructor(private superheroService:SuperheroService) { 
+    // this.newSuperheroAddedSubscription = superheroService.superheroAdded$.subscribe(
+    //   newSuperHero => {
+    //   this.superheroService.superheroes.push(newSuperHero);
+    // });
   }
 
   ngOnInit() {
@@ -41,6 +48,7 @@ this.superheroService.getSuperheroesV9().subscribe(
   (data) => {
     this.heroes = data;
 console.log("all superhero data=",data);
+    this.superheroService.superheroes = data;
     if(this.heroes.length > 0) {   // select the first hero, if there is one
       this.onHeroClicked(data[0]);
 

@@ -29,6 +29,7 @@ export class SuperheroDetailsComponent implements OnInit {
         // Emit list event
         // EmitterService.get(this.listId).emit(comments);
         console.log("responseJSON=",responseJSON);
+        this.superheroService.superheroes = responseJSON;
     }, 
     err => {
       // Log errors if any
@@ -43,6 +44,7 @@ export class SuperheroDetailsComponent implements OnInit {
       newHero => {
 console.log("inside observable subscription response, newHero=",newHero);
         this.onHeroAdded.emit(newHero);
+        this.superheroService.superheroes.push(newHero);
     });
   }
 

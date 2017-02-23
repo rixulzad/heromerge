@@ -1,15 +1,37 @@
 <div class="component-root">
-  <p>
+  <h3 class="ui top attached header">
     Powers of {{ selectedHero.hero_name }}
-  </p>
-  <div class="item" *ngFor="let power of selectedHero.powers; let i=index">
+  </h3>
+  <!--<div class="item" *ngFor="let power of selectedHero.powers; let i=index; trackBy:trackByFn">
     <span>
       <input type="checkbox" [(ngModel)]="selectedPowers[i]">
     </span>
     <span>
       <input [(ngModel)]="selectedHero.powers[i]" size="20" placeholder="Enter new power">
     </span>
-  </div>
+  </div>-->
+  <table class="ui celled definition table">
+    <thead>
+      <tr>
+        <th></th>
+        <th>Power</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let power of selectedHero.powers; let i=index; trackBy:trackByFn">
+        <td class="collapsing">
+          <div class="ui fitted checkbox">
+            <input type="checkbox" [(ngModel)]="selectedPowers[i]">
+          </div>
+        </td>
+        <td>
+          <div>
+            <input [(ngModel)]="selectedHero.powers[i]" size="20" placeholder="Enter new power">
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
   <button (click)="onAddClicked()">Add</button>
   <button (click)="onRemovedClicked()">Remove</button>
 </div>

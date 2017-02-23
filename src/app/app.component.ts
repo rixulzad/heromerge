@@ -41,6 +41,7 @@ export class AppComponent {
 
   onHeroAdded(hero:Superhero) {
     console.log("inside AppComponent onHeroAdded, hero=",hero);
+    this.listComponent.selectedHero = hero;
   }
 
 }

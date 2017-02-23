@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/toPromise';
+import { Subject }    from 'rxjs/Subject';
 import { Superhero } from './superhero.model';
 
 @Injectable()
@@ -12,9 +13,11 @@ export class SuperheroService {
   public ATTRIBUTES = ["intelligence", "strength", "speed", "durability", "power", "combat"];
   API_KEY_URL:string = "https://hero-merge.herokuapp.com/getApiKey";
   GET_URL:string = "https://hero-merge.herokuapp.com/" + this.API_KEY + "/heroes";
+
+  private superheroAdded = new Subject<Superhero>();
+  superheroAdded$ = this.superheroAdded.asObservable();
   
   superheroes:Superhero[];
-  superheroesObservable:Observable<Superhero[]>;
 
   constructor(private http:Http) { }
 

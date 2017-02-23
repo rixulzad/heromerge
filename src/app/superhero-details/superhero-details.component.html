@@ -1,36 +1,36 @@
-<div *ngIf="selectedHero">
-  <table>
-    <tr>
-      <td>Super Hero Name:</td>
-      <td>
-        <input [(ngModel)]="selectedHero.hero_name" placeholder="Superhero name">
-      </td>
-    </tr>
-    <tr>
-      <td>Real Name:</td>
-      <td>
-        <input [(ngModel)]="selectedHero.real_name" placeholder="Real name">
-      </td>
-    </tr>
-    <tr>
-      <td>Gender:</td>
-      <td>
-        <input [(ngModel)]="selectedHero.gender" placeholder="Gender">
-      </td>
-    </tr>
-    <tr>
-      <td>id:</td>
-      <td>{{ selectedHero.id }}</td>
-    </tr>
-    <tr>
-      <td>
-        <attributes-editor [selectedHero]="selectedHero"></attributes-editor>
-      </td>
-      <td>
-        <powers-editor [selectedHero]="selectedHero"></powers-editor>
-      </td>
-    </tr>
-  </table>
-  <button (click)="onSuperHeroSave(selectedHero)">Save Changes to Hero</button>
-  <button (click)="onNewSuperHero(selectedHero)">Save New Hero</button>
+<div *ngIf="selectedHero" class="ui form">
+  <div class="inline fields">
+    <div class="field">
+      <label>Hero Name</label>
+      <input [(ngModel)]="selectedHero.hero_name" type="text" placeholder="Superhero name">
+    </div>
+  </div>
+  <div class="inline fields">
+    <div class="field">
+      <label>Real Name&nbsp;</label>
+      <input [(ngModel)]="selectedHero.real_name" type="text" placeholder="Real name">
+    </div>
+  </div>
+  <div class="inline fields">
+    <div class="field">
+      <label style="padding-left:10px">Gender</label>
+      <input [(ngModel)]="selectedHero.gender" type="text" placeholder="Gender" style="margin-left:20px">
+    </div>
+  </div>
+  <div class="ui grid">
+    <div class="ten wide column">
+      <attributes-editor [selectedHero]="selectedHero"></attributes-editor>
+    </div>
+    <div class="ten wide column">
+      <powers-editor [selectedHero]="selectedHero"></powers-editor>
+    </div>
+  </div>
+  <button (click)="onSuperHeroSave(selectedHero)" class="ui labeled icon button">
+    <i class="left save icon"></i>
+    Save Changes to Hero
+  </button>
+  <button (click)="onNewSuperHero(selectedHero)" class="ui labeled icon button">
+    <i class="left plus icon"></i>
+    Add New Hero
+  </button>
 </div>

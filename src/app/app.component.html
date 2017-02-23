@@ -6,6 +6,6 @@
     <superhero-list (onHeroSelected)="onHeroSelected($event)" (onHeroAdded)="onHeroAdded($event)"></superhero-list>
   </div>
   <div class="column">
-    <superhero-details [selectedHero]="selectedHero"></superhero-details>
+    <superhero-details [selectedHero]="selectedHero" (onHeroAdded)="onHeroAdded($event)"></superhero-details>
   </div>
 </div>
