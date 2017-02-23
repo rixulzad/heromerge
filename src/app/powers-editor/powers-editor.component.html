@@ -20,8 +20,10 @@
     <tbody>
       <tr *ngFor="let power of selectedHero.powers; let i=index; trackBy:trackByFn">
         <td class="collapsing">
-          <div class="ui fitted checkbox">
-            <input type="checkbox" [(ngModel)]="selectedPowers[i]">
+          <div class="ui fitted checkbox" [ngClass]="{checked: selectedPowers[i]}">
+            <input type="checkbox" (click)="onCheckboxClicked(i)" [(ngModel)]="selectedPowers[i]">
+            <!-- the label must follow the input or the checkbox won't check - https://github.com/Semantic-Org/Semantic-UI/issues/328 -->
+            <label></label>
           </div>
         </td>
         <td>
@@ -32,6 +34,12 @@
       </tr>
     </tbody>
   </table>
-  <button (click)="onAddClicked()">Add</button>
-  <button (click)="onRemovedClicked()">Remove</button>
+  <button (click)="onAddClicked()" class="ui labeled icon blue button">
+    <i class="left add circle icon"></i>
+    Add
+  </button>
+  <button (click)="onRemovedClicked()" class="ui labeled icon blue button">
+    <i class="left minus circle icon"></i>
+    Remove
+  </button>
 </div>

@@ -1,36 +1,54 @@
 <div *ngIf="selectedHero" class="ui form">
-  <div class="inline fields">
-    <div class="field">
-      <label>Hero Name</label>
-      <input [(ngModel)]="selectedHero.hero_name" type="text" placeholder="Superhero name">
+  <div class="ui equal width stackable internally grid">
+    <div class="center aligned row">
+      <div class="column">
+        <div class="inline fields">
+          <div class="field">
+            <label>Hero Name</label>
+            <input [(ngModel)]="selectedHero.hero_name" type="text" placeholder="Superhero name">
+          </div>
+        </div>
+      </div>
+      <div class="column">
+        <div class="inline fields">
+          <div class="field">
+            <label>Real Name&nbsp;</label>
+            <input [(ngModel)]="selectedHero.real_name" type="text" placeholder="Real name">
+          </div>
+        </div>
+      </div>
+      <div class="column">
+        <div class="inline fields">
+          <div class="field">
+            <select class="ui dropdown" style="margin-top:20px">
+              <option value="">Gender</option>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-  <div class="inline fields">
-    <div class="field">
-      <label>Real Name&nbsp;</label>
-      <input [(ngModel)]="selectedHero.real_name" type="text" placeholder="Real name">
+  <div class="ui equal width stackable internally grid">
+    <div class="center aligned row">
+      <div class="column">
+        <attributes-editor [selectedHero]="selectedHero"></attributes-editor>
+      </div>
+      <div class="column">
+        <powers-editor [selectedHero]="selectedHero"></powers-editor>
+      </div>
     </div>
   </div>
-  <div class="inline fields">
-    <div class="field">
-      <label style="padding-left:10px">Gender</label>
-      <input [(ngModel)]="selectedHero.gender" type="text" placeholder="Gender" style="margin-left:20px">
-    </div>
+  <div class="details-footer">
+    <button (click)="onSuperHeroSave(selectedHero)" class="ui labeled icon blue button">
+      <i class="left save icon"></i>
+      Save Changes to Hero
+    </button>
+    <button (click)="onNewSuperHero(selectedHero)" class="ui labeled icon blue button">
+      <i class="left plus icon"></i>
+      Add New Hero
+    </button>
   </div>
-  <div class="ui grid">
-    <div class="ten wide column">
-      <attributes-editor [selectedHero]="selectedHero"></attributes-editor>
-    </div>
-    <div class="ten wide column">
-      <powers-editor [selectedHero]="selectedHero"></powers-editor>
-    </div>
-  </div>
-  <button (click)="onSuperHeroSave(selectedHero)" class="ui labeled icon button">
-    <i class="left save icon"></i>
-    Save Changes to Hero
-  </button>
-  <button (click)="onNewSuperHero(selectedHero)" class="ui labeled icon button">
-    <i class="left plus icon"></i>
-    Add New Hero
-  </button>
 </div>

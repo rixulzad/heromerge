@@ -9,7 +9,7 @@ import { Superhero } from './superhero.model';
 
 @Injectable()
 export class SuperheroService {
-  public API_KEY:string = "";
+  public API_KEY:string = "57362abb";
   public ATTRIBUTES = ["intelligence", "strength", "speed", "durability", "power", "combat"];
   API_KEY_URL:string = "https://hero-merge.herokuapp.com/getApiKey";
   GET_URL:string = "https://hero-merge.herokuapp.com/" + this.API_KEY + "/heroes";

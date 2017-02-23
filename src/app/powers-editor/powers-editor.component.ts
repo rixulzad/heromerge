@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, SimpleChange } from '@angular/core';
 import { Superhero } from '../superhero.model';
 
 @Component({
@@ -17,12 +17,24 @@ export class PowersEditorComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log("this.selectedHero=",this.selectedHero);
+    // console.log("this.selectedHero=",this.selectedHero);
     // if(this.selectedHero && this.selectedHero.powers) {
       // for(let i=0, len=this.selectedHero.powers.length; i <len; i++) {
       //   this.selectedPowers.push(false);
       // }
     // }
+  }
+
+  ngOnChanges(changes: {[propKey: string]: SimpleChange}) {
+    for (let propName in changes) {
+      let changedProp = changes[propName];
+      
+      if(changedProp.currentValue.hasOwnProperty("powers")) {
+        changedProp.currentValue.powers.forEach(power => {
+          this.selectedPowers.push(false);
+        });
+      }
+    }
   }
 
   onAddClicked() {
@@ -50,6 +62,11 @@ export class PowersEditorComponent implements OnInit {
   onPowerChange(hero) {
     console.log("inside onPowerChange, hero=",hero);
     // do I need to save the new/edited/removed power array, since data only flows down?
+  }
+
+  onCheckboxClicked(i:number) {
+    console.log("inCheckboxClicked, i=",i);
+    this.selectedPowers[i] = !this.selectedPowers[i];
   }
 
   trackByFn(index: any, item: any) {

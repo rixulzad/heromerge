@@ -1,11 +1,24 @@
-<h1>
-  {{title}}
-</h1>
-<div class="ui two column doubling stackable grid container">
-  <div class="column">
-    <superhero-list (onHeroSelected)="onHeroSelected($event)" (onHeroAdded)="onHeroAdded($event)"></superhero-list>
-  </div>
-  <div class="column">
-    <superhero-details [selectedHero]="selectedHero" (onHeroAdded)="onHeroAdded($event)"></superhero-details>
+<!--<div class="ui text container">-->
+  <!--<h1 class="ui left aligned icon header">
+    <i class="circular empire icon"></i>
+    Superhero Merge (An Angular 1 Guy's Project to Learn Angular 2)
+  </h1>-->
+  <h1 class="ui center aligned icon header ">
+    <img src="/assets/images/rootImage2.jpg" style="width:200px">
+    <!--<div class="content">-->
+      Superhero Merge (An Angular 1 Guy's Project to Learn Angular 2)
+    <!--</div>-->
+  </h1>
+<!--</div>-->
+<div class="ui vertical stripe quote segment">
+  <div class="ui equal width stackable internally grid">
+    <div class="center aligned row">
+      <div class="column">
+        <superhero-list (onHeroSelected)="onHeroSelected($event)" (onHeroAdded)="onHeroAdded($event)"></superhero-list>
+      </div>
+      <div class="column">
+        <superhero-details [selectedHero]="selectedHero" (onHeroAdded)="onHeroAdded($event)"></superhero-details>
+      </div>
+    </div>
   </div>
 </div>
